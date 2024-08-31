@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>인용구 타이핑 게임</title>
+    <title>언어별 명언 타이핑 게임</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>명언 타이핑 게임</h1>
-        <p class="instructions">아래의 영어 명언을 최대한 빠르고 정확하게 입력하세요:</p>
+        <p class="instructions">아래의 명언을 최대한 빠르고 정확하게 입력하세요:</p>
         <p class="sentence">{{ sentence }}</p>
         <p class="author">- {{ author }}</p>
         <p class="translation">{% if session.language != 'ko' %}{{ translation }}{% endif %}</p>
