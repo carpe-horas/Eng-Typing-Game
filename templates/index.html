@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인용구 타이핑 게임</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>명언 타이핑 게임</h1>
+        <p class="instructions">아래의 영어 명언을 최대한 빠르고 정확하게 입력하세요:</p>
+        <p class="sentence">{{ sentence }}</p>
+        <p class="author">- {{ author }}</p>
+        <p class="translation">{% if session.language != 'ko' %}{{ translation }}{% endif %}</p>
+
+        <form method="post" action="{{ url_for('submit') }}" id="game-form" autocomplete="off" onsubmit="disableButton()">
+            <input type="hidden" name="sentence" value="{{ sentence }}">
+            <input type="text" name="user_input" id="user-input" placeholder="일단 입력 고고!!" autofocus oninput="onInput()" />
+            <button type="submit" id="submit-button">제출</button>
+            <button type="button" id="change-language-button">다른 언어 선택</button>
+            <button type="button" id="end-game-button">게임 종료</button>
+        </form>
+
+        <div class="results">
+            <div class="left-side">
+                <p><strong>걸린 시간:</strong> {% if results %}{{ results.time_taken }} 초{% else %}0 초{% endif %}</p>
+                <p><strong>1분당 타수:</strong> {% if results %}{{ results.cpm }} 타{% else %}0 타{% endif %}</p>
+                <p><strong>오타 단어수:</strong> {% if results %}{{ results.errors }}{% else %}0개{% endif %}</p>
+                <p><strong>정확도:</strong> {% if results %}{{ results.accuracy }}%{% else %}0%{% endif %}</p>
+            </div>
+            <div class="right-side">
+                <p><strong>레벨:</strong> {{ level }}</p>
+                <p><strong>점수:</strong> {% if results %}{{ results.score }}{% else %}0{% endif %}</p>
+                <p><strong>현재 점수:</strong> {{ score }}</p>
+                <p><strong>남은 시간:</strong> <span id="time-left">40초</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- url_for를 사용할 수 있게 URL을 자바스크립트 변수로 전달 -->
+    <script>
+        const changeLanguageUrl = "{{ url_for('choose_language') }}";
+        const endGameUrl = "{{ url_for('game_over') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

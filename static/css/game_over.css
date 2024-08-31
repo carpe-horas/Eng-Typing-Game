@@ -1,0 +1,69 @@
+/* game_over.css */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #ffffff;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #585858;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 450px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #d1d1d1;
+    border-bottom: 2px solid #5cb85c;
+    padding-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    margin: 15px 0;
+    color: #b5b5b5;
+}
+
+strong {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+a.button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5cb85c;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #4cae4c;
+}
+
+a.button:focus {
+    outline: none;
+}

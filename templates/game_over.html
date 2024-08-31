@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게임 종료 - 통계 요약</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game_over.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>게임 종료</h1>
+        <h2>통계 요약</h2>
+        <p><strong>총 타이핑 시간:</strong> {{ total_time_taken }} 초</p>
+        <p><strong>평균 1분당 타자 수:</strong> {{ avg_cpm }} 타</p>
+        <p><strong>총 오타 수:</strong> {{ total_errors }}</p>
+        <p><strong>가장 많이 실수한 단어:</strong>
+            {% if most_common_mistake and most_common_mistake[1]|int > 0 %}
+                {{ most_common_mistake[0] }} ({{ most_common_mistake[1] }} 회)
+            {% else %}
+                없음
+            {% endif %}
+        </p>
+        <p><strong>최종 점수:</strong> {{ total_score }}</p>
+        <a href="{{ url_for('index') }}" class="button">다시 하기</a>
+        <a href="{{ url_for('choose_language') }}" class="button">다른 언어 선택</a>
+    </div>
+</body>
+</html>
