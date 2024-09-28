@@ -17,7 +17,13 @@
 - 40초 타이머 내에 명언을 최대한 정확하게 입력하는 방식
 - 레벨별 난이도 제공 (최대 10 레벨)
 - 게임 종료 후 통계 요약 제공
+  
+## 기술 스택
 
+- **Backend**: Python, Flask
+- **Frontend**: HTML, CSS, JavaScript
+- **API**: Google Translate API (명언 번역)
+  
 ## 폴더구조
   
 ```plaintext
@@ -43,8 +49,13 @@
 ```
   
 ## 설치 및 실행 방법
-  
+
+1. **라이브러리 설치**
+   ```bash
+   pip install Flask googletrans
+   ```
+
+2. Flask 서버 실행
    ```bash
    python velocity.py
-
-  
+   ```
