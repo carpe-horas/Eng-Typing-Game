@@ -22,7 +22,7 @@
 
 - **Backend**: Python, Flask
 - **Frontend**: HTML, CSS, JavaScript
-- **API**: Google Translate API (명언 번역)
+- **API**: Google Translate API
   
 ## 폴더구조
   
